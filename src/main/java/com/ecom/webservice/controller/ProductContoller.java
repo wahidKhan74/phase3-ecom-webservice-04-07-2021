@@ -1,9 +1,7 @@
 package com.ecom.webservice.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +17,6 @@ import com.ecom.webservice.exception.ProductNotFoundException;
 import com.ecom.webservice.repository.ProductRepository;
 
 @RestController
-@RequestMapping(value = "/api/")
 public class ProductContoller {
 
 	@Autowired
