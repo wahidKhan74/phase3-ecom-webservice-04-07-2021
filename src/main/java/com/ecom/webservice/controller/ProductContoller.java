@@ -19,6 +19,7 @@ import com.ecom.webservice.exception.ProductNotFoundException;
 import com.ecom.webservice.repository.ProductRepository;
 
 @RestController
+@RequestMapping(value = "/api/")
 public class ProductContoller {
 
 	@Autowired
@@ -33,14 +34,6 @@ public class ProductContoller {
 		});
 	}
 
-	// get one product by name
-//	@RequestMapping(value = "/product",method=RequestMethod.GET)
-//	public Product getOneProduct(@PathParam("name") String name) {
-//		
-//		return this.productRepo.findOne(name).orElseThrow(()->{
-//			throw new ProductNotFoundException();
-//		});
-//	}
 
 	// get all products
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
@@ -60,7 +53,7 @@ public class ProductContoller {
 	// update product
 	@RequestMapping(value = "/products/{id}", method= RequestMethod.PUT)
 	public Product updateOneProduct(@PathVariable("id") long id, @RequestBody(required=false) Product productObj) {
-		
+		//find record 
 		this.productRepo.findById(id).orElseThrow(()->{
 			throw new ProductNotFoundException();
 		});
@@ -71,6 +64,7 @@ public class ProductContoller {
 	@RequestMapping(value = "/products/{id}", method=RequestMethod.DELETE)
 	public void deleteOneProduct(@PathVariable("id") long id) {
 		
+		// verify product exist
 		Product fetchedProduct = this.productRepo.findById(id).orElseThrow(()->{
 			throw new ProductNotFoundException();
 		});
