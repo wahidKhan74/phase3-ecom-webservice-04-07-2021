@@ -105,6 +105,6 @@ public class ProductControllerTest {
 		assertEquals(404, response.getStatusCodeValue());
 	}
 	
-	// TODO : update and delete
+	// TODO : update and delete products
 	
 }
